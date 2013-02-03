@@ -13,4 +13,4 @@ export JAVA_HOME=/usr/lib/jvm/java-7-openjdk/jre
 export EDITOR=vim
 export EC2_HOME=/opt/aws/ec2-api-tools-1.6.6.0
 
-PATH=$PATH:$HOME/.rvm/bin:$EC2_HOME/bin
+PATH=$PATH:$HOME/.rvm/bin:$EC2_HOME/bin:$HOME/bin
