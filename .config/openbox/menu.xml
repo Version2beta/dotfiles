@@ -27,14 +27,6 @@
       </startupnotify>
     </action>
   </item>
-  <item label="Ark File Archiver">
-    <action name="Execute">
-      <command>ark</command>
-      <startupnotify>
-        <enabled>yes</enabled>
-      </startupnotify>
-    </action>
-  </item>
 </menu>
 
 <menu id="apps-editors-menu" label="Editors">
@@ -55,14 +47,6 @@
       </startupnotify>
     </action>
   </item>
-  <item label="XMind">
-    <action name="Execute">
-      <command>XMind</command>
-      <startupnotify>
-        <enabled>yes</enabled>
-      </startupnotify>
-    </action>
-  </item>
 </menu>
 
 <menu id="apps-term-menu" label="Terminals">
@@ -72,11 +56,6 @@
       <startupnotify>
         <enabled>yes</enabled>
       </startupnotify>
-    </action>
-  </item>
-  <item label="Rxvt Unicode">
-    <action name="Execute">
-      <command>urxvt</command>
     </action>
   </item>
   <item label="Xterm">
@@ -93,29 +72,12 @@
       </startupnotify>
     </action>
   </item>
-  <item label="Chrome">
-    <action name="Execute">
-      <command>google-chrome</command>
-      <startupnotify>
-        <enabled>yes</enabled>
-      </startupnotify>
-    </action>
-  </item>
   <item label="Firefox">
     <action name="Execute">
       <command>firefox</command>
       <startupnotify>
         <enabled>yes</enabled>
         <wmclass>Firefox</wmclass>
-      </startupnotify>
-    </action>
-  </item>
-  <item label="Opera">
-    <action name="Execute">
-      <command>opera</command>
-      <startupnotify>
-        <enabled>yes</enabled>
-        <wmclass>Opera</wmclass>
       </startupnotify>
     </action>
   </item>
@@ -175,17 +137,6 @@
   </item>
 </menu>
 
-<menu id="apps-multimedia-menu" label="Multimedia">
-  <item label="Rhythmbox">
-    <action name="Execute">
-      <command>rhythmbox</command>
-      <startupnotify>
-        <enabled>yes</enabled>
-      </startupnotify>
-    </action>
-  </item>
-</menu>
-
 <menu id="apps-fileman-menu" label="File Managers">
   <item label="Xfe">
     <action name="Execute">
@@ -225,14 +176,6 @@
   <item label="Gimp">
     <action name="Execute">
       <command>gimp</command>
-      <startupnotify>
-        <enabled>yes</enabled>
-      </startupnotify>
-    </action>
-  </item>
-  <item label="Dia Diagram Editor">
-    <action name="Execute">
-      <command>dia</command>
       <startupnotify>
         <enabled>yes</enabled>
       </startupnotify>
