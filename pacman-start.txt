@@ -80,7 +80,6 @@ xchat
 xorg-server
 xterm
 xvidcore
-yaourt
 zathura
 zathura-djvu
 zathura-pdf-poppler
