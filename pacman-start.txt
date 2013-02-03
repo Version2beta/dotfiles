@@ -12,6 +12,7 @@ cups-filters
 curl
 empathy
 erlang
+evince
 filezilla
 firefox
 flashplugin
@@ -31,7 +32,6 @@ gnome-terminal
 gnu-netcat
 gnupg
 gnutls
-gvim
 gzip
 harfbuzz
 hplip
@@ -63,13 +63,16 @@ mozilla-common
 net-tools
 openbox
 openssh
+pcmanfm
 python-pip
 python2
 python2-pip
 rsync
 s3cmd
 siege
+speedcrunch
 sudo
+sxiv
 tmux
 ttf-dejavu
 ttf-freefont
@@ -77,6 +80,7 @@ vim
 wget
 whois
 xchat
+xfe
 xorg-server
 xterm
 xvidcore
