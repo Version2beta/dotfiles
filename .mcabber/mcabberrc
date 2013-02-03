@@ -1,0 +1,7 @@
+set jid = rob@version2beta.com
+set server = talk.google.com
+set port = 5223
+set priority = 3
+set ssl = 1
+set nickname = version2beta
+

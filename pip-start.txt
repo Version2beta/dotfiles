@@ -1,0 +1,12 @@
+BeautifulSoup
+dingus
+expecter
+Fabric
+ipython
+Jinja2
+nose
+pyzmq
+redis
+requests
+s3cmd
+sh
