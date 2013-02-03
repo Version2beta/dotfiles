@@ -70,7 +70,6 @@ python2-pip
 rsync
 s3cmd
 siege
-speedcrunch
 sudo
 sxiv
 tmux
