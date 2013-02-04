@@ -1,4 +1,5 @@
 acpi
+acpid
 alsa-lib
 alsa-utils
 apg
@@ -64,9 +65,11 @@ net-tools
 openbox
 openssh
 pcmanfm
+pkgfile
 python-pip
 python2
 python2-pip
+pyxdg
 rsync
 s3cmd
 siege
@@ -74,13 +77,18 @@ sudo
 sxiv
 tmux
 ttf-dejavu
+ttf-droid
 ttf-freefont
+ttf-inconsolata
 vim
 wget
 whois
 xchat
+xf86-video-nouveau
 xfe
 xorg-server
+xorg-xinit
+xorg-xrandr
 xterm
 xvidcore
 zathura
