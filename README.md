@@ -13,5 +13,5 @@ pip-start:
 ```
 rm /usr/bin/python
 ln -s /usr/bin/python2 /usr/bin/python
-pip install --upgrade pip-start.txt
+pip install --upgrade -r pip-start.txt
 ```
