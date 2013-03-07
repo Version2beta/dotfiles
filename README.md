@@ -8,7 +8,7 @@ pacman-start:
 pacman -S $(cat pacman-start.txt)
 ```
 
-pip-start:
+pip-start (assumes Arch Linux):
 
 ```
 rm /usr/bin/python
