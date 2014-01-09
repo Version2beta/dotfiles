@@ -1,109 +1,115 @@
-" Use Vim settings, rather then Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
-
-" TODO: this may not be in the correct place. It is intended to allow overriding <Leader>.
-" source ~/.vimrc.before if it exists.
-if filereadable(expand("~/.vimrc.before"))
-  source ~/.vimrc.before
-endif
-
-" =============== Pathogen Initialization ===============
-" This loads all the plugins in ~/.vim/bundle
-" Use tpope's pathogen plugin to manage all other plugins
-
-"  runtime bundle/tpope-vim-pathogen/autoload/pathogen.vim
-"  call pathogen#infect()
-"  call pathogen#helptags()
-
-" ================ General Config ====================
-
-"set number                      "Line numbers are good
-set backspace=indent,eol,start  "Allow backspace in insert mode
-set history=1000                "Store lots of :cmdline history
-set showcmd                     "Show incomplete cmds down the bottom
-set showmode                    "Show current mode down the bottom
-set gcr=a:blinkon0              "Disable cursor blink
-set visualbell                  "No sounds
-set autoread                    "Reload files changed outside vim
-
-" This makes vim act like all other editors, buffers can
-" exist in the background without being in a window.
-" http://items.sjbach.com/319/configuring-vim-right
-set hidden
-
-"turn on syntax highlighting
+set t_Co=16
+call pathogen#incubate()
 syntax on
+colorscheme default
+set background=dark
+filetype plugin indent on
 
-" ================ Search Settings  =================
+set nocompatible  " We don't want vi compatibility.
 
-set incsearch        "Find the next match as we type the search
-set hlsearch         "Hilight searches by default
-set viminfo='100,f1  "Save up to 100 marks, enable capital marks
+let mapleader=","
 
-" ================ Turn Off Swap Files ==============
+map th :tabfirst<CR>
+map tj :tabprev<CR>
+map tk :tabnext<CR>
+map tl :tablast<CR>
+map tt :tabedit<Space>
+map tn :tabnext<Space>
+map tm :tabm<Space>
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 
-set noswapfile
-set nobackup
-set nowb
+map <F1> <nop> 
+nmap K <nop>
 
-" ================ Persistent Undo ==================
-" Keep undo history across sessions, by storing in file.
-" Only works all the time.
 
-silent !mkdir ~/.vim/backups > /dev/null 2>&1
-set undodir=~/.vim/backups
-set undofile
+map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 
-" ================ Indentation ======================
+syntax enable
 
+set cf  " Enable error files & error jumping.
+set clipboard=unnamed  " Yanks go on clipboard instead
+.
+set history=256  " Number of things to remember in history.
+set autowrite  " Writes on make/shell commands
+set ruler  " Ruler on
+set nu  " Line numbers on
+set nowrap  " Line wrapping off
+set timeoutlen=250  " Time to wait after ESC (default causes an annoying delay)
+
+"  " Formatting (some of these are for coding in C and C++)
+set ts=2  " Tabs are 2 spaces
+set bs=2  " Backspace over everything in insert mode
+set shiftwidth=2  " Tabs under smart indent
+set nocp incsearch
+set hlsearch
+set cinoptions=:0,p0,t0
+set cinwords=if,else,while,do,for,switch,case
+set formatoptions=tcqr
+set cindent
 set autoindent
-set smartindent
 set smarttab
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
 set expandtab
 
-filetype plugin on
-filetype indent on
+"   " Visual
+set showmatch  " Flash matching brackets
+set mat=2  " Bracket blinking.
+set list
+set lcs=tab:>.,trail:.,extends:#,nbsp:.
+set novisualbell  " No blinking .
+set noerrorbells  " No noise.
+set laststatus=0  " Always show status line.
 
-" Display tabs and trailing spaces visually
-"set list listchars=tab:\ \ ,trail:·
+set pastetoggle=<F2> 
 
-set wrap       "Don't wrap lines
-set linebreak    "Wrap lines at convenient points
-set nolist
+let g:haddock_browser = "w3m"
 
-" ================ Folds ============================
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929  
+match OverLength /\%81v.\+/
 
-set foldmethod=indent   "fold based on indent
-set foldnestmax=3       "deepest fold is 3 levels
-set nofoldenable        "dont fold by default
+map <F4> :execute "Ack " . expand("<cword>")<Bar> cw<CR>
+map ,n :NERDTreeToggle<CR>
 
-" ================ Completion =======================
+au Bufenter *.hs compiler ghc
+au BufRead,BufNewFile *.jade setfiletype jade
+au BufRead,BufNewFile *.ng setfiletype mustache
+au BufRead,BufNewFile *.clj setfiletype clojure
+au BufRead,BufNewFile *.go setfiletype go
 
-set wildmode=list:longest
-set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
-set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
-set wildignore+=*vim/backups*
-set wildignore+=*sass-cache*
-set wildignore+=*DS_Store*
-set wildignore+=vendor/rails/**
-set wildignore+=vendor/cache/**
-set wildignore+=*.gem
-set wildignore+=log/**
-set wildignore+=tmp/**
-set wildignore+=*.png,*.jpg,*.gif
+" VimClojure
+let vimclojure#HighlightBuiltins = 1
+let vimclojure#ParenRainbow = 1
+set wildignore +=*/.git/*
+set wildignore +=*.ipc
+set wildignore +=*.swp
 
-" ================ Scrolling ========================
+set wildignore +=target
+set wildignore +=project
+set wildignore +=lib_managed
 
-set scrolloff=8         "Start scrolling when we're 8 lines away from margins
-set sidescrolloff=15
-set sidescroll=1
+let g:ctrlp_custom_ignore = 'vendor\/'
+let g:ctrlp_extensions = ['tag']
+nnoremap <silent> <c-f> :<c-u>CtrlPTag<cr>
 
-" ================ Highlight trailing whitespace ====
 
-highlight ExtraWhiteSpace ctermbg=darkgreen guibg=darkgreen
-match ExtraWhitespace /\s\+$/
+let loaded_matchparen = 1
 
+"Shove selected lines into clipboard
+vmap Y :w !xclip<CR><CR>
+
+if has('gui_running')
+  set guioptions -=m
+  set guioptions -=T
+  set guioptions -=r
+  set guioptions -=L
+  set guifont=Inconsolata:h14
+endif
+
+if has('mac')
+  set shell=/bin/zsh
+endif
+
+let g:syntastic_scala_checkers=['fsc']
+let g:syntastic_scala_options='-Ystop-after:icode'
